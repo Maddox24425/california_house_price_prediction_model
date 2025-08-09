@@ -26,7 +26,7 @@ st.sidebar.image("https://images.pexels.com/photos/259588/pexels-photo-259588.jp
 
 # This give the min and max value of the house in our california.csv file
 # and also read the data  
-temp_df=pd.read_csv("California.csv")
+temp_df=pd.read_csv(r"D:\Data Science\california_house_price_prediction_model\California.csv")
 all_Value=[]
 random.seed(57) #this will the random value so, that it cannot be change 
 for i in temp_df[col]:
@@ -40,7 +40,7 @@ ss=StandardScaler()
 ss.fit(temp_df[col])
 final_value=ss.transform([all_Value])
 
-with open("House_price_pred_ridge_model.pkl","rb")as f:
+with open(r"D:\Data Science\california_house_price_prediction_model\house_price_pred_ridge_model.pkl","rb")as f:
     chatgpt=pickle.load(f)
 
 price=chatgpt.predict(final_value)[0]*1000000
